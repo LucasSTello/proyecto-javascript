@@ -1,0 +1,427 @@
+/* 
+ * Estilos Principales - Yamaha MX Store
+ */
+
+:root {
+    /* Paleta de colores Yamaha Racing */
+    --yamaha-blue: #0033cc;
+    --yamaha-dark: #000000;
+    --yamaha-gray: #1a1a1a;
+    --text-white: #ffffff;
+    --text-gray: #b3b3b3;
+    --danger: #e60000;
+    --success: #00cc44;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--yamaha-gray);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tipografía deportiva Teko para titulares */
+h1, h2, h3, h4, .logo-yamaha, .filter-btn, .cart-toggle, .checkout-btn, .product-price, .cart-item-price {
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase;
+}
+
+/* --- HEADER PRINCIPAL --- */
+.header {
+    background-color: var(--yamaha-dark);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--yamaha-blue);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo-yamaha { color: var(--yamaha-blue); }
+.logo-mx { color: var(--text-white); font-size: 1.8rem; }
+
+/* Botón flotante Carrito */
+.cart-toggle {
+    background: transparent;
+    color: var(--text-white);
+    border: 2px solid var(--yamaha-blue);
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.cart-toggle:hover {
+    background: var(--yamaha-blue);
+    box-shadow: 0 0 10px rgba(0, 51, 204, 0.5);
+}
+
+.cart-badge {
+    background: var(--text-white);
+    color: var(--yamaha-blue);
+    padding: 0.1rem 0.6rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    /* Imagen de pista de motocross oscura (Vía placeholder para robustes) */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://placehold.co/1200x500/1a1a1a/222222?text=Pista+Motocross+Racing');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 5rem 1rem;
+    border-bottom: 2px solid var(--yamaha-blue);
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    color: var(--yamaha-blue);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- FILTROS DE PRODUCTOS --- */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2.5rem 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--yamaha-dark);
+    color: var(--text-white);
+    border: 1px solid var(--text-gray);
+    padding: 0.5rem 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--yamaha-blue);
+    border-color: var(--yamaha-blue);
+    transform: scale(1.05);
+}
+
+/* --- GRILLA DE PRODUCTOS DINÁMICOS --- */
+.products-grid {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    display: grid;
+    /* Diseño Responsive automático */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.product-card {
+    background: var(--yamaha-dark);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 51, 204, 0.3);
+    border-color: rgba(0, 51, 204, 0.5);
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 1rem;
+    background: #fff;
+    border-bottom: 2px solid var(--yamaha-blue);
+}
+
+.product-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-category {
+    font-size: 0.8rem;
+    color: var(--yamaha-blue);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.product-name {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1rem;
+}
+
+.product-price {
+    font-size: 2rem;
+    color: var(--text-white);
+}
+
+.btn-add {
+    background: var(--yamaha-blue);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-add:hover { background: #002299; transform: scale(1.05); }
+.btn-add:active { transform: scale(0.95); }
+
+/* --- PANEL LATERAL DEL CARRITO (OFFCANVAS) --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.cart-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cart-sidebar {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background: var(--yamaha-gray);
+    border-left: 3px solid var(--yamaha-blue);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+.cart-overlay.hidden .cart-sidebar {
+    transform: translateX(100%);
+}
+
+.cart-header {
+    background: var(--yamaha-dark);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cart-header h2 { font-size: 2.2rem; color: var(--yamaha-blue); letter-spacing: 1px; }
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover { color: var(--danger); transform: scale(1.1); }
+
+/* --- ÍTEMS DEL CARRITO --- */
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Custom Scrollbar Carrito */
+.cart-items::-webkit-scrollbar { width: 6px; }
+.cart-items::-webkit-scrollbar-track { background: var(--yamaha-dark); }
+.cart-items::-webkit-scrollbar-thumb { background: var(--yamaha-blue); border-radius: 4px; }
+
+
+.cart-item {
+    display: flex;
+    background: var(--yamaha-dark);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    padding: 0.3rem;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid var(--yamaha-blue);
+}
+
+.cart-item-details { flex-grow: 1; }
+.cart-item-title { font-size: 1.3rem; margin-bottom: 0.2rem; }
+.cart-item-price { font-size: 1.5rem; color: var(--yamaha-blue); }
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.qty-btn {
+    background: var(--yamaha-gray);
+    color: white;
+    border: 1px solid var(--text-gray);
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.qty-btn:hover { background: var(--yamaha-blue); border-color: var(--yamaha-blue); }
+.cart-item-qty { font-size: 1rem; min-width: 20px; text-align: center; }
+
+.remove-btn {
+    background: transparent;
+    color: var(--danger);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    transition: color 0.2s;
+}
+.remove-btn:hover { color: #ff3333; }
+
+.empty-cart-msg {
+    text-align: center;
+    color: var(--text-gray);
+    margin-top: 2rem;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* --- FOOTER DEL CARRITO (CHECKOUT) --- */
+.cart-footer {
+    background: var(--yamaha-dark);
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+#cart-total-price {
+    font-size: 2.5rem;
+    color: var(--yamaha-blue);
+}
+
+.checkout-btn {
+    width: 100%;
+    background: var(--yamaha-blue);
+    color: var(--text-white);
+    border: none;
+    padding: 1rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+    letter-spacing: 1px;
+}
+
+.checkout-btn:hover { background: var(--success); }
+
+/* Mensajes visuales en checkout */
+.msg {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+.msg.success { background: rgba(0, 204, 68, 0.2); color: var(--success); border: 1px solid var(--success); }
+.msg.error { background: rgba(230, 0, 0, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.hidden { display: none !important; }
+
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }

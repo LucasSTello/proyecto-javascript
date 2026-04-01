@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamaha MX Store | Tienda de Motocross</title>
+    <!-- Fuentes para diseño moderno y agresivo estilo Racing -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-yamaha">YAMAHA</span> <span class="logo-mx">MX STORE</span>
+            </div>
+            <nav class="nav">
+                <button id="cart-btn" class="cart-toggle">
+                    🛒 Carrito <span id="cart-count" class="cart-badge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Sección central visual (Hero) -->
+        <section class="hero">
+            <h1>LA MEJOR EQUIPACIÓN PARA LA PISTA</h1>
+            <p>Descubre nuestras motos YZ, indumentaria oficial y accesorios de alta competición.</p>
+        </section>
+
+        <!-- Filtros de categoría -->
+        <section class="filters">
+            <button class="filter-btn active" data-category="todos">Todos</button>
+            <button class="filter-btn" data-category="motos">Motos</button>
+            <button class="filter-btn" data-category="cascos">Cascos</button>
+            <button class="filter-btn" data-category="equipamiento">Equipamiento</button>
+            <button class="filter-btn" data-category="accesorios">Accesorios</button>
+        </section>
+
+        <!-- Grilla de productos generada dinámicamente con JavaScript -->
+        <section id="products-container" class="products-grid">
+            <!-- Los productos se inyectan acá como HTML -->
+        </section>
+    </main>
+
+    <!-- Panel Lateral del carrito (Oculto por defecto, funciona con Offcanvas) -->
+    <div id="cart-overlay" class="cart-overlay hidden">
+        <aside class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Tu Carrito</h2>
+                <button id="close-cart-btn" class="close-btn">&times;</button>
+            </div>
+            
+            <div id="cart-items" class="cart-items">
+                <!-- Los items del carrito se inyectan acá dinámicamente -->
+                <div class="empty-cart-msg">Tu carrito está vacío.</div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="checkout-btn">Finalizar Compra</button>
+                <p id="checkout-msg" class="msg hidden"></p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Archivo principal JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
